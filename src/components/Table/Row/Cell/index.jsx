@@ -7,7 +7,7 @@ export default class Cell extends Component {
 	render() {
 		return (
 			<td>
-
+				{this.props.property}
             </td>
 		);
 	}

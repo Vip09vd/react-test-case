@@ -11,7 +11,7 @@ export default class Table extends Component {
             <table>
                 <Header/>
                 <tbody>
-                    <Row/>
+                {this.props.items.map((item, index) => <Row item={item} key={index}/>)}
                 </tbody>
             </table>
 		);

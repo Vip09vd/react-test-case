@@ -6,7 +6,7 @@ export const products = [{
     rating: 3.8
 }, {
     id: 2,
-    type: 'phone',
+    type: 'tablet',
     name: 'Nokia Lumia 1320',
     price: '$130',
     rating: 2.1
@@ -18,7 +18,7 @@ export const products = [{
     rating: 3.8
 }, {
     id: 4,
-    type: 'phone',
+    type: 'tablet',
     name: 'Nokia Lumia 1320',
     price: '$130',
     rating: 2.1
@@ -30,7 +30,7 @@ export const products = [{
     rating: 3.8
 }, {
     id: 6,
-    type: 'phone',
+    type: 'tablet',
     name: 'Nokia Lumia 1320',
     price: '$130',
     rating: 2.1
@@ -42,7 +42,7 @@ export const products = [{
     rating: 3.8
 }, {
     id: 8,
-    type: 'phone',
+    type: 'tablet',
     name: 'Nokia Lumia 1320',
     price: '$130',
     rating: 2.1
@@ -54,7 +54,7 @@ export const products = [{
     rating: 3.8
 }, {
     id: 10,
-    type: 'phone',
+    type: 'tablet',
     name: 'Nokia Lumia 1320',
     price: '$130',
     rating: 2.1
@@ -66,7 +66,7 @@ export const products = [{
     rating: 3.8
 }, {
     id: 12,
-    type: 'phone',
+    type: 'tablet',
     name: 'Nokia Lumia 1320',
     price: '$130',
     rating: 2.1

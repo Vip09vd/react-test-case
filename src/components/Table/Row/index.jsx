@@ -8,7 +8,10 @@ export default class Row extends Component {
 	render() {
 		return (
 			<tr>
-                <Cell/>
+                 <Cell property={this.props.item.id}/>
+                 <Cell property={this.props.item.name}/>
+                 <Cell property={this.props.item.rating}/>
+                 <Cell property={this.props.item.price}/>
             </tr>
 		);
 	}

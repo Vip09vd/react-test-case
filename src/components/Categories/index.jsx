@@ -2,13 +2,14 @@ import React, { Component, PropTypes } from 'react';
 import CategoryItem from "./CategoryItem/index";
 
 export default class Categories extends Component {
-	constructor(props) {
-		super(props);
-	}
+    static propTypes = {
+    	categories: PropTypes.arrayOf(PropTypes.string)
+    };
+
 	render() {
 		return (
             <div className="categories">
-                <CategoryItem />
+                {this.props.categories.map((category, index) => <CategoryItem category={category} key={index}/>)}
             </div>
 		);
 	}
