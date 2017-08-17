@@ -2,16 +2,15 @@ import React, { Component, PropTypes } from 'react';
 import Cell from "./Cell/index";
 
 export default class Row extends Component {
-	constructor(props) {
-		super(props);
-	}
+
 	render() {
 		return (
 			<tr>
-                 <Cell property={this.props.item.id}/>
-                 <Cell property={this.props.item.name}/>
-                 <Cell property={this.props.item.rating}/>
-                 <Cell property={this.props.item.price}/>
+				{this.props.columns.map((column) => <Cell key={column.property}>
+                    {column.transform
+                        ? <column.transform value={this.props.item[column.property]}/>
+                        : this.props.item[column.property]}
+                    </Cell>)}
             </tr>
 		);
 	}

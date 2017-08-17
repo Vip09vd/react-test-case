@@ -1,26 +1,29 @@
-import {products} from "../constants/mocks";
-import { createSelector } from 'reselect';
+import {columns, products} from "../constants/mocks";
 
 const initialState = {
     items: products,
-    selectedCategory: []
+    selectedCategories: [],
+    columns: columns,
+    orderBy: ''
 };
 
 export default function rootReducer(state = initialState, action) {
     switch (action.type) {
-        case 'SELECTED_CATEGORIES_CHANGED':
+        case 'SELECT_CATEGORY':
             return {
-                ...state, selectedCategories: action.selectedCategories
+                ...state, selectedCategories: [...state.selectedCategories, action.targetCategory]
             };
-        default: return state;
+        case 'UNSELECT_CATEGORY':
+            return {
+                ...state,
+                selectedCategories: state.selectedCategories.filter((category) => category !== action.targetCategory)
+            };
+        case 'SORT_ITEMS':
+            return {
+                ...state, orderBy: state.orderBy === action.property ? '-' + state.orderBy : action.property
+            };
+        default:
+            return state;
     }
 }
 
-export const getItems = state => state.items;
-export const getCategories = createSelector(getItems, items => {
-    const categories = new Set();
-    items.forEach((item) => {
-        categories.add(item.type);
-    });
-    return Array.from(categories);
-});

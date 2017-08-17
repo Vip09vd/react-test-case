@@ -3,15 +3,17 @@ import Header from "./Header/index";
 import Row from "./Row/index";
 
 export default class Table extends Component {
-	constructor(props) {
-		super(props);
-	}
+
+    handleHeaderCellClick = (property) => {
+    	this.props.onHeaderCellClick(property)
+	};
+
 	render() {
 		return (
             <table>
-                <Header/>
+                <Header onHeaderCellClick={this.handleHeaderCellClick} columns={this.props.columns}/>
                 <tbody>
-                {this.props.items.map((item, index) => <Row item={item} key={index}/>)}
+               	 {this.props.items.map((item, index) => <Row columns={this.props.columns} item={item} key={item.id != null ? item.id : index}/>)}
                 </tbody>
             </table>
 		);

@@ -1,16 +1,22 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 
 export default class CategoryItem extends Component {
     static propTypes = {
-    	category: PropTypes.string
+        category: PropTypes.string,
+        onChange: PropTypes.func,
+        isChecked: PropTypes.bool
     };
-    
-	render() {
-		return (
+
+    handleChange = () => {
+        this.props.onChange(this.props.category, !this.props.isChecked);
+    };
+
+    render() {
+        return (
             <label className="category-item">
-                <input type="checkbox"/>
+                <input checked={this.props.isChecked} onChange={this.handleChange} type="checkbox"/>
                 <p>{this.props.category}</p>
             </label>
-		);
-	}
+        );
+    }
 }

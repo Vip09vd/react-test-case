@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
+import Cell from "./Cell/index";
 
 export default class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
+
+    handleCellClick = (property) => {
+        this.props.onHeaderCellClick(property)
+    };
 
     render() {
         return (
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Product Name</th>
-                    <th>Rating</th>
-                    <th>Price</th>
+                    {this.props.columns.map((column) => <Cell onHeaderCellClick={this.handleCellClick} id={column.property} key={column.property}>{column.name}</Cell>)}
                 </tr>
             </thead>
         );
