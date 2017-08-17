@@ -72,6 +72,36 @@ export const products = [{
     name: 'Prestigio MultiPad',
     price: '$60',
     rating: 0.6
+}, {
+    id: 13,
+    type: 'notebook',
+    name: 'Lenovo IdeaPad',
+    price: '$420',
+    rating: 3.1
+}, {
+    id: 14,
+    type: 'notebook',
+    name: 'Apple MacBook',
+    price: '$600',
+    rating: 4.3
+}, {
+    id: 15,
+    type: 'notebook',
+    name: 'Xiaomi Mi Notebook',
+    price: '$490',
+    rating: 3.9
+}, {
+    id: 16,
+    type: 'notebook',
+    name: 'Apple MacBook Pro',
+    price: '$1440',
+    rating: 4.8
+}, {
+    id: 17,
+    type: 'notebook',
+    name: 'ASUS ZenBook',
+    price: '$1100',
+    rating: 4.6
 }];
 
 export const columns = [{
