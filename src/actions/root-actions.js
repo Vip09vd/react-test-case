@@ -1,20 +1,22 @@
-export function selectCategory(category) {
+import * as actionTypes from "../constants/actionTypes";
+
+export function selectCategory(targetCategory) {
     return {
-        type: 'SELECT_CATEGORY',
-        targetCategory: category
+        type: actionTypes.SELECT_CATEGORY,
+        targetCategory
     }
 }
 
-export function unselectCategory(category) {
+export function unselectCategory(targetCategory) {
     return {
-        type: 'UNSELECT_CATEGORY',
-        targetCategory: category
+        type: actionTypes.UNSELECT_CATEGORY,
+        targetCategory
     }
 }
 
 export function sortItems(property) {
     return {
-        type: 'SORT_ITEMS',
+        type: actionTypes.SORT_ITEMS,
         property
     }
 }

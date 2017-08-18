@@ -12,6 +12,9 @@ module.exports = function (env) {
     const nodeEnv = env && env.prod ? 'production' : 'development';
     const isProd = nodeEnv === 'production';
     let plugins = [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(nodeEnv || 'development')
+        }),
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: 'index.html'

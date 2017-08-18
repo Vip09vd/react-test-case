@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import CategoryItem from "./CategoryItem/index";
 
 export default class Categories extends Component {
+
     static propTypes = {
         categories: PropTypes.arrayOf(PropTypes.string),
         selectedCategories: PropTypes.arrayOf(PropTypes.string),
@@ -15,10 +16,10 @@ export default class Categories extends Component {
     render() {
         return (
             <div className="categories">
-                {this.props.categories.map((category, index) => <CategoryItem
+                {this.props.categories && this.props.categories.map((category) => <CategoryItem
                     isChecked={this.props.selectedCategories.indexOf(category) !== -1}
                     category={category}
-                    key={index}
+                    key={category}
                     onChange={this.handleChange}
                 />)}
             </div>

@@ -1,4 +1,5 @@
 import {columns, products} from "../constants/mocks";
+import * as actionTypes from "../constants/actionTypes";
 
 const initialState = {
     items: products,
@@ -9,18 +10,20 @@ const initialState = {
 
 export default function rootReducer(state = initialState, action) {
     switch (action.type) {
-        case 'SELECT_CATEGORY':
+        case actionTypes.SELECT_CATEGORY:
             return {
-                ...state, selectedCategories: [...state.selectedCategories, action.targetCategory]
+                ...state,
+                selectedCategories: [...state.selectedCategories, action.targetCategory]
             };
-        case 'UNSELECT_CATEGORY':
+        case actionTypes.UNSELECT_CATEGORY:
             return {
                 ...state,
                 selectedCategories: state.selectedCategories.filter((category) => category !== action.targetCategory)
             };
-        case 'SORT_ITEMS':
+        case actionTypes.SORT_ITEMS:
             return {
-                ...state, orderBy: state.orderBy === action.property ? '-' + state.orderBy : action.property
+                ...state,
+                orderBy: state.orderBy === action.property ? '-' + state.orderBy : action.property
             };
         default:
             return state;

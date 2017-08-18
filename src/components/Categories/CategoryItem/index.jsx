@@ -1,10 +1,15 @@
 import React, {Component, PropTypes} from 'react';
 
 export default class CategoryItem extends Component {
+
     static propTypes = {
+        isChecked: PropTypes.bool,
         category: PropTypes.string,
-        onChange: PropTypes.func,
-        isChecked: PropTypes.bool
+        onChange: PropTypes.func
+    };
+
+    static defaultProps = {
+    	isChecked: false
     };
 
     handleChange = () => {
@@ -15,6 +20,7 @@ export default class CategoryItem extends Component {
         return (
             <label className="category-item">
                 <input checked={this.props.isChecked} onChange={this.handleChange} type="checkbox"/>
+                <div className="checkbox"/>
                 <p>{this.props.category}</p>
             </label>
         );

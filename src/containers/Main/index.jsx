@@ -13,14 +13,25 @@ import {selectCategory, sortItems, unselectCategory} from "../../actions/root-ac
 import {bindActionCreators} from "redux";
 
 class Main extends Component {
+
     static propTypes = {
-        items: PropTypes.arrayOf(PropTypes.shape({
+        selectedItems: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.number,
             type: PropTypes.string,
             name: PropTypes.string,
             price: PropTypes.string,
             rating: PropTypes.number
-        }))
+        })),
+        categories: PropTypes.arrayOf(PropTypes.string),
+        selectedCategories: PropTypes.arrayOf(PropTypes.string),
+        columns: PropTypes.arrayOf(PropTypes.shape({
+            property: PropTypes.string,
+            name: PropTypes.string,
+            transform: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+        })),
+        selectCategory: PropTypes.func,
+        unselectCategory: PropTypes.func,
+        sortItems: PropTypes.func
     };
 
     handleCategorySelection = (category, isChecked) => {
@@ -39,11 +50,15 @@ class Main extends Component {
         return (
             <div className="container">
                 <Categories
-                    selectedCategories={this.props.selectedCategories}
                     categories={this.props.categories}
+                    selectedCategories={this.props.selectedCategories}
                     onChange={this.handleCategorySelection}
                 />
-                <Table onHeaderCellClick={this.handleHeaderCellClick} items={this.props.selectedItems} columns={this.props.columns}/>
+                <Table
+                    items={this.props.selectedItems}
+                    columns={this.props.columns}
+                    onHeaderCellClick={this.handleHeaderCellClick}
+                />
             </div>
         );
     }
@@ -51,7 +66,6 @@ class Main extends Component {
 
 function mapStateToProps(store) {
     return {
-        items: getItems(store),
         categories: getCategories(store),
         selectedCategories: getSelectedCategories(store),
         selectedItems: getSelectedItems(store),
